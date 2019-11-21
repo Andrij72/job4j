@@ -7,21 +7,21 @@ import static org.junit.Assert.*;
 
 public class CheckPrimeNumberTest {
     @Test
-    public void whenIs5() {
+    public void whenNumberIs5() {
         CheckPrimeNumber prime = new CheckPrimeNumber();
         boolean rsl = prime.check(5);
         assertThat(rsl, is(true));
     }
 
     @Test
-    public void whenIs49() {
+    public void whenNumberIs49() {
         CheckPrimeNumber prime = new CheckPrimeNumber();
-        boolean rsl = prime.check(19);
+        boolean rsl = prime.check(49);
         assertThat(rsl, is(true));
     }
 
     @Test
-    public void whenIs4() {
+    public void whenNumberIs4() {
         CheckPrimeNumber prime = new CheckPrimeNumber();
         boolean rsl = prime.check(4);
         assertThat(rsl, is(false));
