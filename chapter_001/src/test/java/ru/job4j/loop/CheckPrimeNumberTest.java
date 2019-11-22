@@ -33,18 +33,4 @@ public class CheckPrimeNumberTest {
         boolean rsl = prime.check(49);
         assertThat(rsl, is(false));
     }
-
-    @Test
-    public void whenIs43() {
-        CheckPrimeNumber prime = new CheckPrimeNumber();
-        boolean rsl = prime.check(43);
-        assertThat(rsl, is(true));
-    }
-
-    @Test
-    public void whenIs51() {
-        CheckPrimeNumber prime = new CheckPrimeNumber();
-        boolean rsl = prime.check(51);
-        assertThat(rsl, is(false));
-    }
 }
