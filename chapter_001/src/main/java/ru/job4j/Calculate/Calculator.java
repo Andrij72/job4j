@@ -2,11 +2,11 @@ package ru.job4j.Calculate;
 
 /**
  * Class   for calculating  arithmetic operations + - *
+ *
  * @author Andrey Kulynych
- * @since 12.10.2019
  * @version 1.0
+ * @since 12.10.2019
  */
-
 public class Calculator {
     public static void add(double first, double second) {
         double result = first + second;
@@ -21,6 +21,7 @@ public class Calculator {
 
     /**
      * Method multiply.
+     *
      * @param first
      * @param second
      */
@@ -39,7 +40,8 @@ public class Calculator {
     }
 
     /**
-     * Main
+     * Main.
+     *
      * @param args
      */
     public static void main(String[] args) {
