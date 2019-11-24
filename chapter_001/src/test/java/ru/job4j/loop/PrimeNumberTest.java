@@ -29,16 +29,16 @@ public class PrimeNumberTest {
 
 
     @Test
-    public void when31() {
+    public void when37() {
         PrimeNumber prime = new PrimeNumber();
-        int count = prime.calc(31);
-        assertThat(count, is(11));
+        int count = prime.calc(37);
+        assertThat(count, is(12));
     }
 
     @Test
-    public void when30() {
+    public void when100() {
         PrimeNumber prime = new PrimeNumber();
-        int count = prime.calc(30);
-        assertThat(count, is(10));
+        int count = prime.calc(100);
+        assertThat(count, is(25));
     }
 }
