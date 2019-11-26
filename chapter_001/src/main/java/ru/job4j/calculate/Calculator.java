@@ -1,4 +1,4 @@
-package ru.job4j.Calculate;
+package ru.job4j.calculate;
 
 /**
  * Class   for calculating  arithmetic operations + - *
