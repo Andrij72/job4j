@@ -10,7 +10,7 @@ public class CheckTest {
     @Test
     public void whenArrayNotMonoByTrueThenFalse() {
         Check check = new Check();
-        boolean[] input = new boolean[] {false, false, true};
+        boolean[] input = new boolean[] {true, true, true, false};
         boolean result = check.mono(input);
         assertThat(result, is(false));
     }
