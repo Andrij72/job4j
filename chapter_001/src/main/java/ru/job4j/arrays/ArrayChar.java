@@ -1,7 +1,5 @@
 package ru.job4j.arrays;
 
-import java.util.Arrays;
-
 public class ArrayChar {
 
     public static boolean startsWith(char[] word, char[] pref) {
