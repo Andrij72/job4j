@@ -9,7 +9,7 @@ public class ArrayCharrTest {
     @Test
     public void whenStartWithPrefixThenTrue() {
         char[] word = {'H', 'e', 'l', 'l', 'o', 'o'};
-        char[] pref = {'H', 'z', 'l'};
+        char[] pref = {'H', 'e', 'l'};
         boolean result = ArrayCharr.startsWith(word, pref);
         assertThat(result, is(true));
     }
@@ -17,8 +17,8 @@ public class ArrayCharrTest {
     @Test
     public void whenNotStartWithPrefixThenFalse() {
         char[] word = {'H', 'e', 'l', 'l', 'o'};
-        char[] pref = {'H', 'i'};
-        boolean result =ArrayChar.startsWith(word, pref);
+        char[] pref = {'H', 'Z', 'l'};
+        boolean result =ArrayCharr.startsWith(word, pref);
         assertThat(result, is(false));
     }
 }
