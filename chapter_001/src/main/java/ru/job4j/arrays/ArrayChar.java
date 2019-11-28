@@ -1,7 +1,6 @@
 package ru.job4j.arrays;
 
 public class ArrayChar {
-
     public static boolean startsWith(char[] word, char[] pref) {
         boolean result = false;
         for (int i = 0; i < pref.length; i++) {
@@ -9,5 +8,4 @@ public class ArrayChar {
         }
         return result;
     }
-
 }
