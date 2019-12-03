@@ -3,8 +3,6 @@ package ru.job4j.arrays;
 public class MatrixCheck {
     public static boolean isWin(char[][] board) {
         boolean result = false;
-        int count = 0;
-
         for (int row = 0; row < board.length; row++) {
             for (int cell = 0; cell < board.length; cell++) {
                 char sign = board[row][cell];
@@ -23,9 +21,6 @@ public class MatrixCheck {
                 }
             }
             System.out.println();
-        }
-        if (count == board.length) {
-            result = true;
         }
         return result;
     }
