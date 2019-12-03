@@ -15,7 +15,7 @@ public class SquareTest {
     }
 
     @Test
-    public void whenBound5Then1_4_9_16_25() {
+    public void whenBound5Then1491625() {
         int bound = 5;
         Square square = new Square();
         int[] rst = square.calculate(bound);

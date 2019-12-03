@@ -16,7 +16,7 @@ public class FindLoopTest {
     }
 
     @Test
-    public void whenArrayHas_11_Then_minus1() {
+    public void whenArrayHas11ThenMinus1() {
         FindLoop find = new FindLoop();
         int[] input = new int[] {5, 10, 3};
         int value = 11;
@@ -39,7 +39,7 @@ public class FindLoopTest {
 
 
     @Test
-    public void WhenNotFind3() {
+    public void whenNotFind3() {
         int[] input = new int[] {5, 2, 11, 2, 9};
         int value = 3;
         int start = 2;

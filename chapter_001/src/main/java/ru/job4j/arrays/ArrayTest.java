@@ -2,7 +2,7 @@ package ru.job4j.arrays;
 
 import java.util.Arrays;
 
-public class arrayTest {
+public class ArrayTest {
 
     public static void main(String[] args) {
         int[][] matrix = {
@@ -18,7 +18,7 @@ public class arrayTest {
         }
         System.out.println("##Sample out matrix##");
 
-        System.out.println(Arrays.deepToString(matrix)+'\n');
+        System.out.println(Arrays.deepToString(matrix) + '\n');
 
 
         int[][] nums = new int[][]
@@ -27,8 +27,8 @@ public class arrayTest {
                         {4, 5, 6},
                         {7, 8, 9}
                 };
-        for (int i = 0; i < nums.length; i++){
-            for(int j=0; j < nums[i].length; j++){
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
 
                 System.out.printf("%d ", nums[i][j]);
             }
@@ -38,8 +38,8 @@ public class arrayTest {
         System.out.println("##Sample out matrix##");
         System.out.println("##Sample out matrix##");
 
-        for (int i = 0; i < matrix.length; i++){
-            for(int j=0; j <matrix[i].length; j++){
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 System.out.printf("%d ", matrix[i][j]);
             }
             System.out.println();

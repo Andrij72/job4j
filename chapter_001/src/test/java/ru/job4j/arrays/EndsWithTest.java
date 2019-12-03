@@ -18,7 +18,7 @@ public class EndsWithTest {
     public void whenNotEndWithPostThenFalse() {
         char[] word = {'H', 'e', 'l', 'l', 'o'};
         char[] post = {'l', 'Z', '0'};
-        boolean result =EndsWith.endsWith(word, post);
+        boolean result = EndsWith.endsWith(word, post);
         assertThat(result, is(false));
     }
 }
