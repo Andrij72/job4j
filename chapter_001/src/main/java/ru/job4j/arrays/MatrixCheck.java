@@ -15,7 +15,7 @@ public class MatrixCheck {
             }
             System.out.println();
         }
-        if (count == 5) {
+        if (count == board.length) {
             result = true;
         }
         return result;
