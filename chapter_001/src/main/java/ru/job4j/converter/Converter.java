@@ -24,19 +24,16 @@ public class Converter {
         int out = rubleToEuro(in);
         boolean passed = expected == out;
         System.out.println("140 rubles are 2. Test result : " + passed);
-
         int in1 = 180;
         int expected1 = 3;
         int out1 = rubleToDollar(in1);
         boolean passed1 = expected1 == out1;
         System.out.println("180 rubles are 3. Test result : " + passed1);
-
         int in2 = 3;
         int expected2 = 180;
         int out2 = dollarToRuble(in2);
         boolean passed2 = expected2 == out2;
         System.out.println("3 dollars are 180. Test result : " + passed2);
-
         int in3 = 2;
         int expected3 = 140;
         int out3 = euroToRuble(in3);

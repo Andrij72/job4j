@@ -12,15 +12,11 @@ public class ArrayTest {
                 {3, 3, 6, 9, 12},
                 {4, 4, 8, 12, 16},
         };
-
         for (int[] j : matrix) {
             System.out.println(Arrays.toString(j));
         }
         System.out.println("##Sample out matrix##");
-
         System.out.println(Arrays.deepToString(matrix) + '\n');
-
-
         int[][] nums = new int[][]
                 {
                         {1, 2, 3},
@@ -29,21 +25,17 @@ public class ArrayTest {
                 };
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums[i].length; j++) {
-
                 System.out.printf("%d ", nums[i][j]);
             }
             System.out.println();
         }
-
         System.out.println("##Sample out matrix##");
         System.out.println("##Sample out matrix##");
-
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 System.out.printf("%d ", matrix[i][j]);
             }
             System.out.println();
         }
-
     }
 }

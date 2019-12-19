@@ -1,6 +1,6 @@
 package ru.job4j.arrays;
 
-public class ArrayCharr {
+public class ArrayChar {
     public static boolean startsWith(char[] word, char[] pref) {
         boolean result = true;
         for (int i = 0; i < pref.length; i++) {
