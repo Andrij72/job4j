@@ -8,7 +8,6 @@ public class DummyDic {
         return tword;
     }
 
-
     public static void main(String[] args) {
         DummyDic dummyDic = new DummyDic();
         dummyDic.engToRus("java");

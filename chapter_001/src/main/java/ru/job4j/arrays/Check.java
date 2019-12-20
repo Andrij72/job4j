@@ -1,7 +1,6 @@
 package ru.job4j.arrays;
 
 public class Check {
-
     public boolean mono(boolean[] data) {
         boolean result = true;
         for (int i = 1; i < data.length; i++) {
