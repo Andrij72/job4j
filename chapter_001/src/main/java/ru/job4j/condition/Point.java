@@ -19,8 +19,8 @@ public class Point {
         double result1 = distance(new Point(0, 0), new Point(0, 2));
         double result2 = distance(new Point(1, 1), new Point(3, 3));
         double result3 = distance(new Point(1, 0), new Point(5, 0));
-        System.out.println("result (0, 0) to (2, 0) " + result1);
-        System.out.println("result (1, 1) to (3, 3) " + result2);
-        System.out.println("result (1, 0) to (5, 0) " + result3);
+        System.out.printf("result (0, 0) to (2, 0) :  %.2f%n", result1);
+        System.out.printf("result (1, 1) to (3, 3) :  %.2f%n", result2);
+        System.out.printf("result (1, 0) to (5, 0) :  %.2f%n", result3);
     }
 }
