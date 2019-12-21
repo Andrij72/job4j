@@ -8,15 +8,15 @@ public class Battery {
     }
 
     public void exchange(Battery another) {
-        this.load -= 5;
-        another.load += 5;
+        another.load += this.load;
+        this.load = 0;
     }
 
     public static void main(String[] args) {
-        Battery battery = new Battery(100);
-        Battery another = new Battery(10);
-        System.out.println("Начальные значения объектов battery: " + battery.load + " another: " + another.load);
-        battery.exchange(another);
-        System.out.println("После действия метода   battery: " + battery.load + " another: " + another.load);
+        Battery first = new Battery(10);
+        Battery second = new Battery(90);
+        System.out.println("Before exchange battery  first: " + first.load + " second: " + second.load);
+        first.exchange(second);
+        System.out.println("After exchange battery first: " + first.load + " second: " + second.load);
     }
 }
