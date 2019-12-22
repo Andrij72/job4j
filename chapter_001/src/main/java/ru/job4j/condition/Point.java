@@ -11,16 +11,19 @@ public class Point {
         this.y = y;
     }
 
-    public static double distance(Point first, Point second) {
-        return Math.sqrt(pow(second.x - first.x, 2) + pow(second.y - first.y, 2));
+        public double distance(Point that) {
+        return Math.sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2));
     }
 
     public static void main(String[] args) {
-        double result1 = distance(new Point(0, 0), new Point(0, 2));
-        double result2 = distance(new Point(1, 1), new Point(3, 3));
-        double result3 = distance(new Point(1, 0), new Point(5, 0));
+        Point first = new Point(0, 0);
+        Point second = new Point(2, 0);
+        Point third = new Point(3, 3);
+        double result1 = first.distance(second);
+        double result2 = first.distance(third);
+        double result3 = second.distance(third);
         System.out.printf("result (0, 0) to (2, 0) :  %.2f%n", result1);
-        System.out.printf("result (1, 1) to (3, 3) :  %.2f%n", result2);
-        System.out.printf("result (1, 0) to (5, 0) :  %.2f%n", result3);
+        System.out.printf("result (0, 0) to (3, 3) :  %.2f%n", result2);
+        System.out.printf("result (2, 0) to (3, 3) :  %.2f%n", result3);
     }
 }
