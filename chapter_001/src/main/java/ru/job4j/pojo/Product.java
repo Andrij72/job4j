@@ -21,7 +21,14 @@ public class Product {
         return count;
     }
 
+    @Override
+    public String toString() {
+        return "{" + name + " | " + count + "}";
+    }
+
     public void setCount(int count) {
         this.count = count;
     }
+
+
 }
