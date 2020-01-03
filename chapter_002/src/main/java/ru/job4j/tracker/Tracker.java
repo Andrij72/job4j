@@ -44,6 +44,7 @@ public class Tracker {
                 }
             }
         }
+
         return Arrays.copyOf(arr, position);
     }
 
@@ -68,6 +69,6 @@ public class Tracker {
                 position++;
             }
         }
-        return Arrays.copyOf(arr2, position);
+        return Arrays.copyOf(items, position);
     }
 }

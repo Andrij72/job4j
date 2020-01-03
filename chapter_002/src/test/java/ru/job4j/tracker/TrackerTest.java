@@ -21,7 +21,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void whenfindByNameTheSameItem() {
+    public void whenfindMy_item() {
         Tracker tracker = new Tracker();
         Item item1 = new Item("My_item");
         Item item2 = new Item("Your_item");
@@ -33,7 +33,8 @@ public class TrackerTest {
         tracker.add(item4);
         Item [] result = tracker.findByName("My_item");
         Item [] etalon = {item1,  item4};
-        System.out.println(Arrays.toString(result));
+        System.out.println("Before: " + Arrays.toString(etalon));
+        System.out.println("Result: " + Arrays.toString(result));
         assertThat(Arrays.equals(result, etalon), is(true));
     }
 
@@ -67,7 +68,8 @@ public class TrackerTest {
         tracker.add(item4);
       Item [] result = tracker.findAll();
         Item [] etalon = {item1, item2, item3, item4};
-            System.out.println(Arrays.deepToString(etalon));
+        System.out.println("Before: " + Arrays.toString(etalon));
+        System.out.println("Result: " + Arrays.toString(result));
       assertThat(Arrays.equals(result, etalon), is(true));
     }
 }
