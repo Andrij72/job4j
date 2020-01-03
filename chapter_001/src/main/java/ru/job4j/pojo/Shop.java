@@ -3,7 +3,7 @@ package ru.job4j.pojo;
 public class Shop {
 
     public static void main(String[] args) {
-        Product[] products = new Product[5];
+        Product[] products = new Product[4];
         products[0] = new Product("Milk", 10);
         products[1] = new Product("Bread", 4);
         products[2] = new Product("Egg", 19);
@@ -18,7 +18,7 @@ public class Shop {
             }
         }
         System.out.println();
-        System.out.println("Finish array products after delete products[2]:");
+        System.out.println("Finish array products after delete products[0]:");
         Shop.delete(products, 0);
         for (int i = 0; i < products.length; i++) {
             Product product = products[i];
@@ -36,6 +36,7 @@ public class Shop {
             Product product = products[i];
             products[i] = products[i + 1];
         }
+        products[products.length - 1] = null;
         return products;
     }
 }
