@@ -8,8 +8,6 @@ public class Matches {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int user1 = 0;
-        int user2 = 0;
         while (run) {
             if (checkWinner("user1")) {
                 run = false;
