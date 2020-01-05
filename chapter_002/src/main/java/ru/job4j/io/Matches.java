@@ -6,7 +6,6 @@ public class Matches {
     public static void main(String[] args) {
         int count = 11;
         Scanner input1 = new Scanner(System.in);
-        Scanner input2 = new Scanner(System.in);
         boolean run = true;
         while (run) {
             System.out.println("First user,  please take your matches 1...3" + "\n");
