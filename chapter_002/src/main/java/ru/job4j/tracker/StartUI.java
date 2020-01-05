@@ -21,27 +21,31 @@ public class StartUI {
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
                 Item[] items = tracker.findAll();
-                System.out.println("=== Your keep items: " + Arrays.toString(items) + "====" + "\n");
+                for (Item item : items) {
+                    System.out.println("=== Your keep items:  <<" + item.getName() + "<< ====" + "\n");
+                }
             } else if (select == 2) {
                 System.out.println("=== Edit item ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
-                //  tracker.update(item);
+                tracker.update(item);
                 System.out.print("=== Item " + name + "is succeed updated !====" + "\n");
             } else if (select == 3) {
                 System.out.print("=== Delete item ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
-                //tracker.delete(item);
+                tracker.delete(item);
                 System.out.print("=== Item " + item.getName() + "is succeed deleted !====" + "\n");
             } else if (select == 4) {
                 System.out.print("=== Find item by Id ====");
                 System.out.print("Enter Id: ");
                 String id = scanner.nextLine();
                 Item item = tracker.findById(id);
-                System.out.print("=== Fined item  is: // " + item.getName() + "//====" + "\n");
+                if (item != null) {
+                    System.out.print("=== Fined item  is: // " + item.getName() + "//====" + "\n");
+                }
             } else if (select == 5) {
                 System.out.print("=== Find item by name ====");
                 System.out.print("Enter name: ");
