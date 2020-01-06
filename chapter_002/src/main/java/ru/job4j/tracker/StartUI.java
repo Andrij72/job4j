@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class StartUI {
@@ -16,13 +15,13 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.add(item);
-                System.out.print("=== You succeed add item " + name + "!====" + "\n");
+                System.out.print("You succeed add item <<" + name + ">>" + System.lineSeparator());
 
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
                 Item[] items = tracker.findAll();
                 for (Item item : items) {
-                    System.out.println("=== Your keep items:  <<" + item.getName() + "<< ====" + "\n");
+                    System.out.println("Your keep item:  <<" + item.getName() + ">>");
                 }
             } else if (select == 2) {
                 System.out.println("=== Edit item ====");
@@ -30,44 +29,48 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.update(item);
-                System.out.print("=== Item " + name + "is succeed updated !====" + "\n");
+                System.out.print("Item ==" + name + "== is succeed updated !" + System.lineSeparator());
             } else if (select == 3) {
                 System.out.print("=== Delete item ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                Item item = new Item(name);
-                tracker.delete(item);
-                System.out.print("=== Item " + item.getName() + "is succeed deleted !====" + "\n");
+                Item[] itms = tracker.findByName(name);
+                if (itms.length != 0) {
+                    tracker.delete(name);
+                    System.out.print("Items  =" + name + "= is succeed deleted !" + System.lineSeparator());
+                } else {
+                    System.out.print(" Item  ==" + name + " == not found !" + System.lineSeparator());
+                }
             } else if (select == 4) {
                 System.out.print("=== Find item by Id ====");
                 System.out.print("Enter Id: ");
                 String id = scanner.nextLine();
                 Item item = tracker.findById(id);
                 if (item != null) {
-                    System.out.print("=== Fined item  is: // " + item.getName() + "//====" + "\n");
+                    System.out.print("=== Find item  is: // " + item.getName() + " //====" + System.lineSeparator());
                 }
             } else if (select == 5) {
                 System.out.print("=== Find item by name ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
-                System.out.print("=== Found items : // " + items + "//====" + "\n");
+                System.out.print(" Found items : // " + items + " //" + System.lineSeparator());
             } else if (select == 6) {
                 run = false;
             }
         }
     }
 
-    private void showMenu() {
+    public void showMenu() {
         StringBuilder builder = new StringBuilder();
         System.out.println("Menu.");
-        builder.append("0. Add new Item" + "\n");
-        builder.append("1. Show all items" + "\n");
-        builder.append("2. Edit item" + "\n");
-        builder.append("3. Delete item" + "\n");
-        builder.append("4. Find item by Id" + "\n");
-        builder.append("5. Find items by name" + "\n");
-        builder.append("6. Exit Program" + "\n");
+        builder.append("0. Add new Item" + System.lineSeparator());
+        builder.append("1. Show all items" + System.lineSeparator());
+        builder.append("2. Edit item" + System.lineSeparator());
+        builder.append("3. Delete item" + System.lineSeparator());
+        builder.append("4. Find item by Id" + System.lineSeparator());
+        builder.append("5. Find items by name" + System.lineSeparator());
+        builder.append("6. Exit Program" + System.lineSeparator());
         System.out.println(builder.toString());
     }
 
