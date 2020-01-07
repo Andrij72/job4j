@@ -27,20 +27,27 @@ public class StartUI {
                 System.out.println("=== Edit item ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                Item item = new Item(name);
-                tracker.update(item);
-                System.out.print("Item ==" + name + "== is succeed updated !" + System.lineSeparator());
-            } else if (select == 3) {
-                System.out.print("=== Delete item ====");
-                System.out.print("Enter name: ");
-                String name = scanner.nextLine();
-                Item[] itms = tracker.findByName(name);
-                if (itms.length != 0) {
-                    tracker.delete(name);
-                    System.out.print("Items  =" + name + "= is succeed deleted !" + System.lineSeparator());
+                if (!checkItem(name)) {
+                    tracker.update(name);
+                    for (Item item : tracker.findAll()) {
+                        System.out.println("Item ==" + item.getName() + "== is succeed updated !");
+                    }
                 } else {
                     System.out.print(" Item  ==" + name + " == not found !" + System.lineSeparator());
                 }
+            } else if (select == 3) {
+                System.out.println("=== Delete item ====");
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                if (!checkItem(name)) {
+                    tracker.delete(name);
+                    for (Item item : tracker.findAll()) {
+                        System.out.println("Item ==" + item.getName() + "== is succeed deleted !");
+                    }
+                } else {
+                    System.out.print(" Item  ==" + name + " == not found !" + System.lineSeparator());
+                }
+
             } else if (select == 4) {
                 System.out.print("=== Find item by Id ====");
                 System.out.print("Enter Id: ");
@@ -59,6 +66,15 @@ public class StartUI {
                 run = false;
             }
         }
+    }
+
+    public static boolean checkItem(String key) {
+        boolean rsl = true;
+        Item[] itms = new Tracker().findByName(key);
+        if (itms.length == 0) {
+            rsl = false;
+        }
+        return rsl;
     }
 
     public void showMenu() {
