@@ -56,7 +56,21 @@ public class Tracker {
         return rsl;
     }
 
-    public Item[] findAll() {      
+    public Item[] findAll() {
         return Arrays.copyOf(items, position);
+    }
+
+    public boolean update(String key) {
+        if (findByName(key).length != 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean delete(String key) {
+        if (findByName(key).length != 0) {
+            return true;
+        }
+        return false;
     }
 }
