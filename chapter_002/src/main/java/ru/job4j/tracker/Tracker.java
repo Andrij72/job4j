@@ -61,16 +61,18 @@ public class Tracker {
     }
 
     public boolean update(String key) {
+        boolean rsl = false;
         if (findByName(key).length != 0) {
-            return true;
+            rsl = true;
         }
-        return false;
+        return rsl;
     }
 
     public boolean delete(String key) {
+        boolean rsl = false;
         if (findByName(key).length != 0) {
-            return true;
+            rsl = true;
         }
-        return false;
+        return rsl;
     }
 }
