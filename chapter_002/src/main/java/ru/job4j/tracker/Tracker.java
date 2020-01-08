@@ -40,38 +40,36 @@ public class Tracker {
                 arr[i++] = items[index];
             }
         }
-
-
         return Arrays.copyOf(arr, i);
     }
 
     public Item findById(String id) {
-        Item rsl = null;
-        for (int index = 0; index < position; index++) {
-            if (items[index].getId().equals(id)) {
-                rsl = items[index];
-                break;
-            }
-        }
-        return rsl;
+        return items[getIndexOf(id)];
     }
 
     public Item[] findAll() {
         return Arrays.copyOf(items, position);
     }
 
-    public boolean update(String key) {
-        boolean rsl = false;
-        if (findByName(key).length != 0) {
-            rsl = true;
-        }
-        return rsl;
+    public void delete(String id) {
+        System.arraycopy(items, getIndexOf(id) + 1, items, getIndexOf(id), position - getIndexOf(id));
+        items[position] = null;
+        position--;
     }
 
-    public boolean delete(String key) {
-        boolean rsl = false;
-        if (findByName(key).length != 0) {
-            rsl = true;
+    public void replace(String id, Item item) {
+        int index = getIndexOf(id);
+        item.setId(id);
+        items[getIndexOf(id)] = item;
+    }
+
+    public int getIndexOf(String id) {
+        int rsl = -1;
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId().equals(id)) {
+                rsl = index;
+                break;
+            }
         }
         return rsl;
     }
