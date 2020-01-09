@@ -45,8 +45,9 @@ public class Tracker {
 
     public Item findById(String id) {
         Item rs = null;
-        if (getIndexOf(id) != -1) {
-            rs = items[getIndexOf(id)];
+        int indexOf = getIndexOf(id);
+        if (indexOf != -1) {
+            rs = items[indexOf];
         }
         return rs;
     }
