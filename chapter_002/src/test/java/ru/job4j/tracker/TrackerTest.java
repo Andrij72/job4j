@@ -83,12 +83,13 @@ public class TrackerTest {
         tracker.add(item1);
         tracker.add(item2);
         tracker.add(item3);
-        Item[] before = tracker.findAll();
+       Item[] before = tracker.findAll();
         String id = item2.getId();
         System.out.println("Before: " + Arrays.toString(before));
         tracker.delete(id);
         Item[] after = tracker.findAll();
-       assertThat(Arrays.equals(before, after), is(true));
+        Item[] etalon = {item1, item3};
+       assertThat(Arrays.equals(etalon, after), is(true));
       System.out.println("Result: " + Arrays.toString(after));
     }
 
@@ -97,6 +98,7 @@ public class TrackerTest {
             Tracker tracker = new Tracker();
             Item bug = new Item("Bug");
             tracker.add(bug);
+            tracker.findAll();
             String id = bug.getId();
             tracker.delete(id);
             assertThat(tracker.findById(id), is(nullValue()));

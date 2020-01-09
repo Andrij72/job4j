@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-
 public class StartUI {
     String question = "";
 
@@ -21,23 +20,30 @@ public class StartUI {
                 System.out.println("=== Show all items ====");
                 Item[] items = tracker.findAll();
                 for (Item item : items) {
-                    System.out.println("Your keep item:  <<" + item.getName() + ">>");
+                    System.out.println("Your keep item:  {" + item.getName() + "|" + item.getId() + " }");
                 }
             } else if (select == 2) {
                 System.out.println("=== Edit item ====");
                 System.out.print("Enter id : ");
-                System.out.print("Enter name : ");
                 String id = input.askStr(question);
+                System.out.print("Enter name : ");
                 String name = input.askStr(question);
                 Item bug = new Item(name);
-                tracker.replace(id, bug);
-                System.out.println("Item ==" + name + " | " + id + "== is succeed updated !");
+                if (tracker.replace(id, bug)) {
+                    System.out.println("Item with is succeed updated with new name:  " + name + " !");
+                } else {
+                    System.out.println("Item ==" + name + " | " + id + "== NOT updated , enter corrected id!");
+                }
             } else if (select == 3) {
                 System.out.println("=== Delete item ====");
                 System.out.print("Enter id : ");
                 String id = input.askStr(question);
-               tracker.delete(id);
+                if (tracker.delete(id)) {
                     System.out.println("Item with " + id + "== is succeed deleted !");
+                } else {
+                    System.out.println("Item with ==" + id + "== NOT deleted,  enter corrected id!");
+                }
+
             } else if (select == 4) {
                 System.out.println("=== Find item by Id ====");
                 System.out.print("Enter Id: ");

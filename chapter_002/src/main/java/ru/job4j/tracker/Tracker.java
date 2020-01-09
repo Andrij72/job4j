@@ -44,23 +44,39 @@ public class Tracker {
     }
 
     public Item findById(String id) {
-        return items[getIndexOf(id)];
+        Item rs = null;
+        if (getIndexOf(id) != -1) {
+            rs = items[getIndexOf(id)];
+        }
+        return rs;
     }
 
     public Item[] findAll() {
         return Arrays.copyOf(items, position);
     }
 
-    public void delete(String id) {
-        System.arraycopy(items, getIndexOf(id) + 1, items, getIndexOf(id), position - getIndexOf(id));
-        items[position] = null;
-        position--;
+    public boolean delete(String id) {
+        boolean rslt = false;
+        int index = getIndexOf(id);
+        if (index != -1) {
+            items[index] = null;
+            System.arraycopy(items, index + 1, items, index, position - index);
+            items[position] = null;
+            position--;
+            rslt = true;
+        }
+        return rslt;
     }
 
-    public void replace(String id, Item item) {
-        int index = getIndexOf(id);
-        item.setId(id);
-        items[getIndexOf(id)] = item;
+    public boolean replace(String id, Item item) {
+        boolean rs = false;
+        int indexOf = getIndexOf(id);
+        if (indexOf != -1) {
+            item.setId(id);
+            items[indexOf] = item;
+            rs = true;
+        }
+        return rs;
     }
 
     public int getIndexOf(String id) {
