@@ -6,27 +6,42 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class StartUITest {
+    @Test
+    public void initTest() {
+        StubInput input = new StubInput(
+                new String[]{"0"}
+        );
+        StubAction action = new StubAction();
+        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+        assertThat(action.isCall(), is(true));
+    }
 
     @Test
     public void createItem() {
-       String[] answers = {"I'm stajor as yet"};
+        String[] answers = {"I'm stajor as yet"};
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item result = tracker.findAll()[0];
-         Item expected = new Item("I'm stajor as yet");
-       assertThat(result.getName(), is(expected.getName()) );
+        UserAction[] actions = {
+                new CreateAction()
+        };
+        new StartUI().init(input, tracker, actions);
+        Item[] result = tracker.findAll();
+        Item expected = new Item("I'm stajor as yet");
+        assertThat(result[0].getName(), is(expected.getName()));
     }
 
     @Test
     public void replaceItem() {
-       Tracker tracker = new Tracker();
-       Item item = new Item("My new work");
-       tracker.add(item);
-       String [] answers = {item.getId(), "Replaced item"};
+        Tracker tracker = new Tracker();
+        Item item = new Item("My new work");
+        tracker.add(item);
+        String[] answers = {item.getId(), "Replaced item"};
         Input input = new StubInput(answers);
-        StartUI.replaceItem(input, tracker);
-       String result = tracker.findAll()[0].getName();
+        UserAction[] actions = {
+                new ReplaceAction()
+        };
+        new StartUI().init(input, tracker, actions);
+        String result = tracker.findAll()[0].getName();
         assertThat(result, is(answers[1]));
     }
 
@@ -37,10 +52,13 @@ public class StartUITest {
         Item old = new Item("My old work");
         tracker.add(old);
         tracker.add(perfect);
-        String [] answersPft = {perfect.getId()};
-        String [] answersOld ={old.getId()};
+        String[] answersOld = {old.getId()};
         Input inputOld = new StubInput(answersOld);
-        StartUI.deleteItem(inputOld, tracker);
+        UserAction[] actions = {
+                new CreateAction()
+        };
+        new StartUI().init(inputOld, tracker, actions);
+
         String rsl = tracker.findAll()[0].getName();
         assertThat(rsl, is(perfect.getName()));
     }
