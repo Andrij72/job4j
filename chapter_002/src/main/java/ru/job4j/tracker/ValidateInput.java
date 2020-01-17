@@ -7,6 +7,10 @@ public class ValidateInput extends ConsoleInput {
         this.input = input;
     }
 
+    public ValidateInput() {
+        input = null;
+    }
+
     @Override
     public int askInt(String question) {
         boolean invalid = true;
