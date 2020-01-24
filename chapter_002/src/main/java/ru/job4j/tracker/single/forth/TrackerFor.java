@@ -12,5 +12,4 @@ public class TrackerFor {
     public static final class Holder {
         private static final TrackerFor INSTANCE = new TrackerFor();
     }
-
 }

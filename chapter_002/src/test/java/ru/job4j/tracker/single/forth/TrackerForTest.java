@@ -6,10 +6,10 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class TrackerForTest {
-    private static final TrackerFor HASH_NUMBER = TrackerFor.getInstance();
+    private static final TrackerFor INSTANCE = TrackerFor.getInstance();
 
     @Test
     public void getInstance() {
-        assertSame(TrackerFor.getInstance(), HASH_NUMBER);
+        assertSame(TrackerFor.getInstance(), INSTANCE);
     }
 }
