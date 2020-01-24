@@ -4,11 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class Tracker2Test {
+public class TrackerTwoTest {
 
     @Test
     public void getInstance() {
-        Tracker2 callInst = Tracker2.INSTANCE;
-        assertSame(callInst, Tracker2.INSTANCE);
+        TrackerTwo callInst = TrackerTwo.INSTANCE;
+        assertSame(callInst, TrackerTwo.INSTANCE);
     }
 }

@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertSame;
 
-public class Tracker3Test {
+public class TrackerThreeTest {
     @Test
     public void getInstance() {
-       Tracker3 firstCall = Tracker3.getInstance();
-        assertSame(firstCall, Tracker3.getInstance());
+       TrackerThree firstCall = TrackerThree.getInstance();
+        assertSame(firstCall, TrackerThree.getInstance());
     }
 }
