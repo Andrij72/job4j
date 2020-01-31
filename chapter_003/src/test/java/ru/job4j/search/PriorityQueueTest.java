@@ -12,11 +12,20 @@ public class PriorityQueueTest {
         queue.put(new Task("low", 5));
         queue.put(new Task("urgent", 1));
         queue.put(new Task("middle", 3));
+        queue.put(new Task("lowest", 6));
+        queue.put(new Task("urgent_middle", 2));
+        StringBuilder printQ = new StringBuilder();
         Task result = queue.take();
-        assertThat(result.getDesc(), is("urgent"));
+        printQ.append(result).append(" ");
         result = queue.take();
-        assertThat(result.getDesc(), is("middle"));
+        printQ.append(result).append(" ");
         result = queue.take();
-        assertThat(result.getDesc(), is("low"));
+        printQ.append(result).append(" ");
+        result = queue.take();
+        printQ.append(result).append(" ");
+        result = queue.take();
+        printQ.append(result).append(" ");
+        System.out.println(printQ.toString());
+        assertThat(result.getDesc(), is("lowest"));
     }
 }
