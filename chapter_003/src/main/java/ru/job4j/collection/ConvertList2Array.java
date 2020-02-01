@@ -2,25 +2,23 @@ package ru.job4j.collection;
 
 import java.util.List;
 
-    public class ConvertList2Array {
-        public static int[][] twoArray(List<Integer> list, int rows) {
-            int cells = rows;
-            while (cells * rows < list.size()) {
-                cells++;
+public class ConvertList2Array {
+    public static int[][] twoArray(List<Integer> list, int rows) {
+        int groups = (int) Math.ceil((double) list.size() / rows);
+        int[][] array = new int[groups][rows];
+        int row = 0, cell = 0;
+        for (Integer num : list) {
+            if (cell < rows) {
+                array[row][cell] = num;
+                    cell++;
             }
-            int[][] array = new int[rows][cells];
-            int index = 0;
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cells; j++) {
-                    if (index >= list.size()) {
-                        array[i][j] = 0;
-                    } else {
-                        array[i][j] = list.get(index++);
-                    }
-                }
+            else {
+                cell = 0;
+               row++;
             }
-            return array;
         }
+        return array;
+    }
 
     public static void main(String[] args) {
         List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7);
