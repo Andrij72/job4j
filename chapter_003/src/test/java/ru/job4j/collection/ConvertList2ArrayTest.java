@@ -7,12 +7,13 @@ import java.util.Arrays;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static ru.job4j.collection.ConvertList2Array.*;
 
 @Ignore
 public class ConvertList2ArrayTest {
     @Test
     public void when7ElementsThen9() {
-        int[][] result = ConvertList2Array.twoArray(
+        int[][] result = twoArray(
                 Arrays.asList(1, 2, 3, 4, 5, 6, 7),
                 5
         );
