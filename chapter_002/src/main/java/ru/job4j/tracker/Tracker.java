@@ -73,20 +73,21 @@ public class Tracker {
         int indexOf = getIndexOf(id);
         if (indexOf != -1) {
             item.setId(id);
-            items.remove(indexOf);
-            items.add(indexOf, item);
+            items.set(indexOf, item);
             rs = true;
         }
         return rs;
     }
 
     public int getIndexOf(String id) {
+        int index = 0;
         int rsl = -1;
         for (Item item : items) {
             if (item.getId().equals(id)) {
-                rsl = items.indexOf(item);
+                rsl = index;
                 break;
             }
+            index++;
         }
         return rsl;
     }
