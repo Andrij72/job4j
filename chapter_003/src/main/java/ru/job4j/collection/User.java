@@ -29,11 +29,7 @@ public class User implements Comparable<User> {
     public int compareTo(User o) {
         int rs = this.name.compareTo(o.name);
         if (rs == 0) {
-            if (this.age > o.age) {
-                rs = 1;
-            } else if (this.age < o.age) {
-                rs = -1;
-            }
+          rs =  Integer.compare(this.age, o.age);
         }
         return rs;
     }
@@ -54,7 +50,8 @@ public class User implements Comparable<User> {
     public static void main(String[] args) {
         Set<User> users = new TreeSet<>();
         users.add(new User("Petr", 32));
-        users.add(new User("Ivan", 31));
+        users.add(new User("Petr", 31));
+        users.add(new User("John", 31));
         System.out.println(users);
     }
 }
