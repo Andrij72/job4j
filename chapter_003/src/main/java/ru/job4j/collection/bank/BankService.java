@@ -2,21 +2,29 @@ package ru.job4j.collection.bank;
 
 import java.util.*;
 
+/**
+ * @author Andrew Kulynych
+ * @since 1.0
+ */
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
+
+    /**
+     * This method add new user in array.
+     *
+     * @param user
+     */
     public void addUser(User user) {
-        new ArrayList<Account>();
         users.putIfAbsent(user, new ArrayList<>());
     }
 
     public void addAccount(String passport, Account account) {
         User userFd = findByPassport(passport);
-        List<Account> valueUpd = users.get(userFd);
+        List<Account> valueUpd = users.getOrDefault(userFd, new ArrayList<>());
         valueUpd.add(account);
         users.putIfAbsent(userFd, valueUpd);
     }
-    //users.forEach((k, v) -> System.out.println("Item : " + k + " Count : " + v));
 
     public User findByPassport(String passport) {
         User userF = null;
@@ -31,8 +39,8 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User userFd = findByPassport(passport);
-        List<Account> value = users.get(userFd);
-        Account accountFd = null;
+        List<Account> value = users.getOrDefault(userFd, new ArrayList<>());
+        Account accountFd = new Account("", 0);
         for (Account a : value) {
             if (a.getRequisite().equals(requisite)) {
                 accountFd = a;
