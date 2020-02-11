@@ -8,8 +8,6 @@ import java.util.*;
  */
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
-
-
     /**
      * This method add new user in array.
      *
@@ -27,7 +25,7 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        User userF = null;
+        User userF = new User("", "");
         for (Map.Entry<User, List<Account>> entry : users.entrySet()) {
             if (entry.getKey().getPassport().equals(passport)) {
                 userF = entry.getKey();

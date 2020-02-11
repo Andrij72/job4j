@@ -9,10 +9,10 @@ public class BankServiceTest {
 
     @Test
     public void addUser() {
-        User user = new User("3434", "Petr Arsentev");
+        User user = new User("3434", "John Silver");
         BankService bank = new BankService();
         bank.addUser(user);
-        assertThat(bank.findByPassport("3434"), is(user));
+        assertThat(bank.findByPassport("3434").getUsername(), is("John Silver"));
     }
 
     @Test
