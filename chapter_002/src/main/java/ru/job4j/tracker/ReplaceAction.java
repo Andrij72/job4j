@@ -18,4 +18,9 @@ public class ReplaceAction implements UserAction {
         }
         return true;
     }
+
+    @Override
+    public Object isCall() {
+        return null;
+    }
 }

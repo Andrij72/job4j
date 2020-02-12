@@ -11,13 +11,6 @@ public class Programmer extends Engineer {
         this.skill = skill;
     }
 
-    public Programmer(String name, String surname, String education, String birthday, String cualification, String issuInstitution, Long data, String progLanguage, int expirience, String skill) {
-        super(name, surname, education, birthday, cualification, issuInstitution, data);
-        this.progLanguage = progLanguage;
-        this.expirience = expirience;
-        this.skill = skill;
-    }
-
     private String skill;
 
     public Programmer(String cqalification, String issuInstitution, Long data) {

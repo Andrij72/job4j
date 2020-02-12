@@ -22,13 +22,6 @@ public class SqMaxTest {
     }
 
     @Test
-    public void whenMaxIs6From4and3and6and1() {
-        int result = SqMax.max(4, 3, 6, 1);
-        Assert.assertThat(result, is(6));
-
-    }
-
-    @Test
     public void whenMaxIs7From4and3and2and7() {
         int result = SqMax.max(4, 3, 2, 7);
         Assert.assertThat(result, is(7));

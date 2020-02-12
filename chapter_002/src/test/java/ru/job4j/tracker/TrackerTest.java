@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 
@@ -22,7 +23,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void whenfindMy_item() {
+    public void whenFindMy_item() {
         Tracker tracker = new Tracker();
         Item item1 = new Item("My_item");
         Item item2 = new Item("Your_item");
@@ -32,11 +33,11 @@ public class TrackerTest {
         tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        Item[] result = tracker.findByName("My_item");
-        Item[] etalon = {item1, item4};
-        System.out.println("Before: " + Arrays.toString(etalon));
-        System.out.println("Result: " + Arrays.toString(result));
-        assertThat(Arrays.equals(result, etalon), is(true));
+        List<Item> actual = tracker.findByName("My_item");
+        List<Item> expected= Arrays.asList(item1, item4);
+        System.out.println("Before: " + expected);
+        System.out.println("Result: " + actual);
+        assertThat( actual, is(expected));
     }
 
     @Test
@@ -67,11 +68,11 @@ public class TrackerTest {
         tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        Item[] result = tracker.findAll();
-        Item[] etalon = {item1, item2, item3, item4};
-        System.out.println("Before: " + Arrays.toString(etalon));
-        System.out.println("Result: " + Arrays.toString(result));
-        assertThat(Arrays.equals(result, etalon), is(true));
+        List <Item> actual = tracker.findAll();
+        List <Item> expected = Arrays.asList(item1, item2, item3, item4);
+        System.out.println("Before: " + expected);
+        System.out.println("Result: " + actual);
+        assertThat(actual, is(expected));
     }
 
     @Test
@@ -83,14 +84,14 @@ public class TrackerTest {
         tracker.add(item1);
         tracker.add(item2);
         tracker.add(item3);
-       Item[] before = tracker.findAll();
+      List <Item> before = tracker.findAll();
         String id = item2.getId();
-        System.out.println("Before: " + Arrays.toString(before));
+        System.out.println("Before: " + before);
         tracker.delete(id);
-        Item[] after = tracker.findAll();
-        Item[] etalon = {item1, item3};
-       assertThat(Arrays.equals(etalon, after), is(true));
-      System.out.println("Result: " + Arrays.toString(after));
+        List <Item>  actual = tracker.findAll();
+        List <Item>  expected = Arrays.asList(item1, item3);
+       assertThat(actual, is(expected));
+      System.out.println("Result: " +actual);
     }
 
         @Test
