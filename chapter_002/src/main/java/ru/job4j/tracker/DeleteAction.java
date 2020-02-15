@@ -16,4 +16,9 @@ public class DeleteAction implements UserAction {
             }
         return true;
     }
+
+    @Override
+    public Object isCall() {
+        return null;
+    }
 }

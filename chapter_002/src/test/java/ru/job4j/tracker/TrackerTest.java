@@ -23,7 +23,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void whenFindMy_item() {
+    public void whenFindMyItem() {
         Tracker tracker = new Tracker();
         Item item1 = new Item("My_item");
         Item item2 = new Item("Your_item");
@@ -34,10 +34,10 @@ public class TrackerTest {
         tracker.add(item3);
         tracker.add(item4);
         List<Item> actual = tracker.findByName("My_item");
-        List<Item> expected= Arrays.asList(item1, item4);
+        List<Item> expected = Arrays.asList(item1, item4);
         System.out.println("Before: " + expected);
         System.out.println("Result: " + actual);
-        assertThat( actual, is(expected));
+        assertThat(actual, is(expected));
     }
 
     @Test
@@ -68,8 +68,8 @@ public class TrackerTest {
         tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        List <Item> actual = tracker.findAll();
-        List <Item> expected = Arrays.asList(item1, item2, item3, item4);
+        List<Item> actual = tracker.findAll();
+        List<Item> expected = Arrays.asList(item1, item2, item3, item4);
         System.out.println("Before: " + expected);
         System.out.println("Result: " + actual);
         assertThat(actual, is(expected));
@@ -84,26 +84,26 @@ public class TrackerTest {
         tracker.add(item1);
         tracker.add(item2);
         tracker.add(item3);
-      List <Item> before = tracker.findAll();
+        List<Item> before = tracker.findAll();
         String id = item2.getId();
         System.out.println("Before: " + before);
         tracker.delete(id);
-        List <Item>  actual = tracker.findAll();
-        List <Item>  expected = Arrays.asList(item1, item3);
-       assertThat(actual, is(expected));
-      System.out.println("Result: " +actual);
+        List<Item> actual = tracker.findAll();
+        List<Item> expected = Arrays.asList(item1, item3);
+        assertThat(actual, is(expected));
+        System.out.println("Result: " + actual);
     }
 
-        @Test
-        public void whenDelete () {
-            Tracker tracker = new Tracker();
-            Item bug = new Item("Bug");
-            tracker.add(bug);
-            tracker.findAll();
-            String id = bug.getId();
-            tracker.delete(id);
-            assertThat(tracker.findById(id), is(nullValue()));
-        }
+    @Test
+    public void whenDelete() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        tracker.findAll();
+        String id = bug.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id), is(nullValue()));
+    }
 
     @Test
     public void whenReplace() {

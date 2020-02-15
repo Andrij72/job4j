@@ -19,4 +19,9 @@ public class FindAllAction implements UserAction {
         }
         return true;
     }
+
+    @Override
+    public Object isCall() {
+        return null;
+    }
 }

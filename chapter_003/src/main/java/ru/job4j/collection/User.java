@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.Set;
@@ -12,7 +11,6 @@ import java.util.TreeSet;
 
 @Setter
 @Getter
-@NotNull
 @AllArgsConstructor
 @ToString
 public class User implements Comparable<User> {
@@ -28,7 +26,7 @@ public class User implements Comparable<User> {
     public int compareTo(User o) {
         int rs = this.name.compareTo(o.name);
         if (rs == 0) {
-          rs =  Integer.compare(this.age, o.age);
+            rs = Integer.compare(this.age, o.age);
         }
         return rs;
     }
@@ -49,7 +47,7 @@ public class User implements Comparable<User> {
     public static void main(String[] args) {
         Set<User> users = new TreeSet<>();
         users.add(new User("Petr", 32));
-        users.add(new User("Petr", 31));
+        users.add(new User("Fill", 31));
         users.add(new User("John", 31));
         System.out.println(users);
     }

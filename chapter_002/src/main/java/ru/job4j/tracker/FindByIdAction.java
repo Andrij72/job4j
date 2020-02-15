@@ -17,4 +17,9 @@ public class FindByIdAction implements UserAction {
             }
         return true;
     }
+
+    @Override
+    public Object isCall() {
+        return null;
+    }
 }

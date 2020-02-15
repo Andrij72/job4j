@@ -17,4 +17,9 @@ public class FindByNameAction implements UserAction {
         itm.forEach(System.out::println);
         return true;
     }
+
+    @Override
+    public Object isCall() {
+        return null;
+    }
 }

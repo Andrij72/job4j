@@ -26,13 +26,13 @@ public class PaintTest {
     }
 
     @After
-    public void BackOut() {
+    public void backOut() {
         System.setOut(this.stdout);
         System.out.println("After test method");
     }
 
     @Test
-    public void WhenDrawTriangle() {
+    public void whenDrawTriangle() {
         Paint.draw(new Triangle());
         assertThat(new Triangle().draw(), is(new StringBuilder()
                 .append("    +    " + System.lineSeparator())
@@ -43,7 +43,7 @@ public class PaintTest {
     }
 
     @Test
-    public void WhenDrawSquare() {
+    public void whenDrawSquare() {
         assertThat(new Square().draw(), is(new StringBuilder()
                 .append("+  +  +  +" + System.lineSeparator())
                 .append("+        +" + System.lineSeparator())
