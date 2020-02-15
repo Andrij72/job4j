@@ -1,7 +1,7 @@
 # -job4j
-# Объединение всех зафиксированных изменений.
-# 
-# Производилось создание новой ветки
-# I made some experiments with new branch task_124176
+# OOP,Collections. My resolving tasks
+# and some experiments with task
 # for next testing
  ###
+[![Build Status](https://travis-ci.org/Andrij72/job4j.svg?branch=master)](https://travis-ci.org/Andrij72/job4j)
+
