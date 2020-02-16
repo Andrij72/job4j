@@ -17,12 +17,15 @@ public class FindByNameActionTest {
         Input input = new StubInput(new String[]{"test item"});
         Item item = new Item("test item");
         tracker.add(item);
+
         PrintStream def = new PrintStream(System.out);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        String expect = new StringJoiner("**", "", "")
-                .add("Found 1 item ")
-                .add(item.getName())
+        String expect = new StringJoiner("", "", "")
+                .add("{")
+                .add(item.getId())
+                .add("|")
+                .add("test item}")
                 .add(System.lineSeparator())
                 .toString();
         new FindByNameAction().execute(input, tracker);
