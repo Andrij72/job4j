@@ -16,7 +16,7 @@ public class Departments {
                     if (vl.length == 1) {
                         elTmp = el;
                         tmp.add(el);
-                    } else if (vl[0] == elTmp) {
+                    } else if (vl[0].equals(elTmp)) {
                         tmp.add(value);
                     } else {
                         tmp.add(vl[0]);
@@ -25,7 +25,6 @@ public class Departments {
                 }
             }
         }
-
         return new ArrayList<>(tmp);
     }
 
@@ -52,12 +51,13 @@ public class Departments {
                 String[] vl2 = v2.split("/");
                 if (vl1.length == 1 && vl2.length == 1) {
                     res = vl2[0].compareTo(vl1[0]);
-                } else if(vl1.length == 2 && vl2.length == 2) {
-                    if (vl1[0]==vl2[0]) {
+                } else if (vl1.length == 2 && vl2.length == 2) {
+                    if (vl1[0].equals(vl2[0])) {
                         res = vl2[1].compareTo(vl1[1]);
-                    } else if(vl1.length == 3 && vl2.length == 3){
-                        if (vl1[1]==vl2[1])
-                            res = vl2[2].compareTo(vl1[2]);
+                    }
+                } else if (vl1.length == 3 && vl2.length == 3) {
+                    if (vl1[1].equals(vl2[1])) {
+                        res = vl2[2].compareTo(vl1[2]);
                     }
                 }
                 return res;
@@ -65,12 +65,9 @@ public class Departments {
         };
 
         Set<String> result = new TreeSet<>(compar);
-        for (String value : orgs) {
-            result.add(value);
-        }
+        result.addAll(orgs);
         return result;
     }
-
 
     public static void main(String[] args) {
         List<String> deps = Arrays.asList(
@@ -85,14 +82,13 @@ public class Departments {
         );
         List<String> lst = fillGaps(deps);
         sortDesc(lst);
-        for (String v:lst) {
+        for (String v : lst) {
             System.out.println(v);
         }
 
         //Print natural order
         System.out.println("##########");
         sortAsc(lst).
-                stream().
                 forEach(System.out::println);
     }
 }
