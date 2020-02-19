@@ -11,9 +11,4 @@ public class CloseAction implements UserAction {
         System.out.println("Program is closed !");
         return false;
     }
-
-    @Override
-    public Object isCall() {
-        return null;
-    }
 }

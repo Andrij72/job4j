@@ -14,9 +14,4 @@ public class CreateAction implements UserAction {
         System.out.println("You succeed add item <<" + name + ">>");
         return true;
     }
-
-    @Override
-    public Object isCall() {
-        return null;
-    }
 }
