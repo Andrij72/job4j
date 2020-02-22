@@ -5,7 +5,7 @@ import java.util.*;
 public class Departments {
 
     public static List<String> fillGaps(List<String> list) {
-        HashSet<String> tmp = new HashSet<>();
+        Set<String> tmp = new LinkedHashSet<>();
         for (String value : list) {
             if (!value.contains("/")) {
                 tmp.add(value);
@@ -30,65 +30,42 @@ public class Departments {
 
     public static Set<String> sortAsc(List<String> orgs) {
         Set<String> result = new TreeSet<>();
-        String temp;
         for (String org : orgs) {
-            if (org.contains("/")) {
-                temp = org.substring(0, org.lastIndexOf("/"));
-                result.add(temp);
-            }
             result.add(org);
         }
         return result;
     }
 
-    public static Set<String> sortDesc(List<String> orgs) {
-
-        Comparator<String> compar = new Comparator<>() {
+    public static Set<String> sortDesc(List<String> departments) {
+        Set<String> result = new TreeSet<>(new Comparator<String>() {
             @Override
-            public int compare(String v1, String v2) {
-                int res = -1;
-                String[] vl1 = v1.split("/");
-                String[] vl2 = v2.split("/");
-                if (vl1.length == 1 && vl2.length == 1) {
-                    res = vl2[0].compareTo(vl1[0]);
-                } else if (vl1.length == 2 && vl2.length == 2) {
-                    if (vl1[0].equals(vl2[0])) {
-                        res = vl2[1].compareTo(vl1[1]);
-                    }
-                } else if (vl1.length == 3 && vl2.length == 3) {
-                    if (vl1[1].equals(vl2[1])) {
-                        res = vl2[2].compareTo(vl1[2]);
-                    }
-                }
-                return res;
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
             }
-        };
-
-        Set<String> result = new TreeSet<>(compar);
-        result.addAll(orgs);
+        });
+        result.addAll(departments);
         return result;
     }
 
     public static void main(String[] args) {
         List<String> deps = Arrays.asList(
                 "K1/SK1",
-                "K1",
                 "K1/SK2",
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
-                "K2",
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2"
         );
-        List<String> lst = fillGaps(deps);
-        sortDesc(lst);
-        for (String v : lst) {
+        //Print when missed department
+        fillGaps(deps).forEach(System.out::println);
+        System.out.println("============");
+        //Print in descender order
+        for (String v : sortDesc(deps)) {
             System.out.println(v);
         }
-
-        //Print natural order
         System.out.println("##########");
-        sortAsc(lst).
+        //Print natural order
+        sortAsc(deps).
                 forEach(System.out::println);
     }
 }
