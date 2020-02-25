@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -25,7 +26,7 @@ public class DepartmentsTest {
         List<String> input = Arrays.asList("k1", "k2", "k1/sk1");
         List<String> expect = Arrays.asList("k1", "k2", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
-        assertThat(result, is(expect));
+        assertThat(result, containsInAnyOrder(expect.toArray()));
     }
 
     @Test
@@ -48,8 +49,7 @@ public class DepartmentsTest {
                 "K2",
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2");
-       Set<String> expected =  new HashSet<>();
-        expected.addAll(deps);
+        Set<String> expected = new HashSet<>(deps);
         assertThat(Departments.sortAsc(departments), is(expected));
     }
 }

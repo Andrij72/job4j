@@ -5,7 +5,7 @@ import java.util.*;
 public class Departments {
 
     public static List<String> fillGaps(List<String> list) {
-        Set<String> tmp = new LinkedHashSet<>();
+        Set<String> tmp = new TreeSet<>();
         for (String value : list) {
             if (!value.contains("/")) {
                 tmp.add(value);
@@ -37,7 +37,7 @@ public class Departments {
     }
 
     public static Set<String> sortDesc(List<String> departments) {
-        Set<String> result = new TreeSet<>(new Comparator<String>() {
+        Set<String> result = new TreeSet<>(new Comparator<>() {
             @Override
             public int compare(String o1, String o2) {
                 return o2.compareTo(o1);
