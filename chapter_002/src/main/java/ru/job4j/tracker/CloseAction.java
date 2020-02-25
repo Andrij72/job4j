@@ -1,6 +1,14 @@
 package ru.job4j.tracker;
 
+import java.util.function.Consumer;
+
 public class CloseAction implements UserAction {
+    private final Consumer<String> output;
+
+    public CloseAction(Consumer<String> output) {
+        this.output = output;
+    }
+
     @Override
     public String name() {
         return "=== Close program ====";
@@ -8,7 +16,7 @@ public class CloseAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("Program is closed !");
+        output.accept("Program is closed !");
         return false;
     }
 }

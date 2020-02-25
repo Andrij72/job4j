@@ -22,7 +22,7 @@ public class StartUI {
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
-          showMenu(actions);
+            showMenu(actions);
             int select = input.askInt("Select: ", actions.size());
             UserAction action = actions.get(select);
             run = action.execute(input, tracker);
@@ -32,7 +32,7 @@ public class StartUI {
     public void showMenu(List<UserAction> actions) {
         System.out.println("Menu.");
         for (UserAction action : actions) {
-         output.accept(actions.indexOf(action) + ". " + action.name());
+            output.accept(actions.indexOf(action) + ". " + action.name());
         }
     }
 
@@ -40,13 +40,13 @@ public class StartUI {
         Input validate = new ValidateInput(new ConsoleInput());
         Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
-        actions.add(new CreateAction());
-        actions.add(new FindAllAction());
+        actions.add(new CreateAction(System.out::println));
+        actions.add(new FindAllAction(System.out::println));
         actions.add(new ReplaceAction());
-        actions.add(new DeleteAction());
-        actions.add(new FindByIdAction());
+        actions.add(new DeleteAction(System.out::println));
+        actions.add(new FindByIdAction(System.out::println));
         actions.add(new FindByNameAction());
-        actions.add(new CloseAction());
-       new StartUI(validate,tracker, System.out::println).init(validate, tracker, actions);
-    }
-}
+        actions.add(new CloseAction(System.out::println));
+        new StartUI(validate, tracker, System.out::println).init(validate, tracker, actions);
+        }
+        }
