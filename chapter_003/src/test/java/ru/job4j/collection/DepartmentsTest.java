@@ -1,6 +1,5 @@
 package ru.job4j.collection;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -20,7 +19,6 @@ public class DepartmentsTest {
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
-
 
     @Test
     public void whenNonChange() {
