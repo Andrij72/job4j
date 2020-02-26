@@ -13,6 +13,7 @@ public class BankService {
 
     /**
      * This method add new user in array.
+     *
      * @param user the {User} type
      */
     public void addUser(User user) {
@@ -39,14 +40,8 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User userFd = findByPassport(passport);
-        List<Account> value = users.getOrDefault(userFd, new ArrayList<>());
-        Account accountFd = ACCOUNT_STUB;
-        for (Account a : value) {
-            if (a.getRequisite().equals(requisite)) {
-                accountFd = a;
-                break;
-            }
-        }
+        Account accountFd = users.getOrDefault(userFd, new ArrayList<>()).stream().
+                filter(a -> a.getRequisite().equals(requisite)).findFirst().orElse(ACCOUNT_STUB);
         System.out.println(accountFd);
         return accountFd;
     }
@@ -54,7 +49,6 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String dstRequisite, double amount) {
         boolean rsl = false;
-
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
         Account destAccount = findByRequisite(destPassport, dstRequisite);
         double srcBalance = srcAccount.getBalance();
