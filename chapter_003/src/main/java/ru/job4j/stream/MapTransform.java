@@ -4,15 +4,15 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class MapTransform<Students> {
+public class MapTransform {
 
     private static List<Student> students = Arrays.asList(new Student("Garry Ford", 30),
             new Student("John Lee", 20), new Student("John Lee", 20),
             new Student("Stiv Makkain", 40));
 
-    public static Map<String, Student> ConvertListToMap(List<Student> students) {
+    public static Map<String, Student> transformListToMap(List<Student> students) {
         return students.stream().
-                collect(Collectors.toMap(Student::getName, Function.identity(),(existing, replacement) -> existing));
+                collect(Collectors.toMap(Student::getName, Function.identity(), (existing, replacement) -> existing));
     }
 
     public static Map<String, Student> listToMapWithDupKeyError(List<Student> students) {
