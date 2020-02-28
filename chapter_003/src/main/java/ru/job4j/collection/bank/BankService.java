@@ -1,6 +1,8 @@
 package ru.job4j.collection.bank;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * @author Andrew Kulynych
@@ -8,7 +10,6 @@ import java.util.*;
  */
 public class BankService {
     static final Account ACCOUNT_STUB = new Account("", 0);
-    static final User FOUND_USER_STUB = new User("", "");
     private Map<User, List<Account>> users = new HashMap<>();
 
     /**
@@ -28,22 +29,24 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        User userF = FOUND_USER_STUB;
-        for (Map.Entry<User, List<Account>> entry : users.entrySet()) {
-            if (entry.getKey().getPassport().equals(passport)) {
-                userF = entry.getKey();
-                break;
-            }
-        }
-        return userF;
+        Map<User, List<Account>> map = new HashMap<>();
+        return users.entrySet().stream()
+                .filter(entry -> entry.getKey().getPassport().equals(passport))
+                .findFirst().orElseThrow().getKey();
     }
 
     public Account findByRequisite(String passport, String requisite) {
         User userFd = findByPassport(passport);
-        Account accountFd = users.getOrDefault(userFd, new ArrayList<>()).stream().
-                filter(a -> a.getRequisite().equals(requisite)).findFirst().orElse(ACCOUNT_STUB);
+        Account accountFd = users.getOrDefault(userFd, new ArrayList<>()).stream()
+                .filter(getAccountPredicate(requisite))
+                .findFirst()
+                .orElse(ACCOUNT_STUB);
         System.out.println(accountFd);
         return accountFd;
+    }
+
+    private Predicate<Account> getAccountPredicate(String requisite) {
+        return a -> a.getRequisite().equals(requisite);
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
