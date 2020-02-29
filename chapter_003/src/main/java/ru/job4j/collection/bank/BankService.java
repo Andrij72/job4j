@@ -2,7 +2,6 @@ package ru.job4j.collection.bank;
 
 import java.util.*;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 /**
  * @author Andrew Kulynych
@@ -10,10 +9,11 @@ import java.util.stream.Collectors;
  */
 public class BankService {
     static final Account ACCOUNT_STUB = new Account("", 0);
+    static final User FOUND_USER_STUB = new User("", "");
     private Map<User, List<Account>> users = new HashMap<>();
 
     /**
-     * This method add new user in array.
+     * This method add new user .
      *
      * @param user the {User} type
      */
@@ -28,11 +28,15 @@ public class BankService {
         users.putIfAbsent(userFd, valueUpd);
     }
 
+    /**
+    *This method  find user by passport
+    *@param  passport String type
+    * @return object User
+    */
     public User findByPassport(String passport) {
-        Map<User, List<Account>> map = new HashMap<>();
-        return users.entrySet().stream()
-                .filter(entry -> entry.getKey().getPassport().equals(passport))
-                .findFirst().orElseThrow().getKey();
+        return users.keySet().stream()
+                .filter(accounts -> accounts.getPassport().equals(passport))
+                .findFirst().orElse(FOUND_USER_STUB);
     }
 
     public Account findByRequisite(String passport, String requisite) {
