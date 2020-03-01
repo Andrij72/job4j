@@ -22,6 +22,24 @@ public class Student implements Comparable<Student> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        if (score != student.score) return false;
+        return name.equals(student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = score;
+        result = 31 * result + name.hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "{" + name + "[" + score + "]" + "}";
     }
