@@ -15,23 +15,23 @@ public class DepartmentsTest {
 
     @Test
     public void whenMissed() {
-        List<String> input = Arrays.asList("k1/sk1", "k2/sk1");
-        List<String> expect = Arrays.asList("k1", "k1/sk1", "k2", "k2/sk1");
+        List<String> input = List.of("k1/sk1", "k2/sk1");
+        List<String> expect = List.of("k1", "k1/sk1", "k2", "k2/sk1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
 
     @Test
     public void whenNonChange() {
-        List<String> input = Arrays.asList("k1", "k2", "k1/sk1");
-        List<String> expect = Arrays.asList("k1", "k2", "k1/sk1");
+        List<String> input = List.of("k1", "k2", "k1/sk1");
+        List<String> expect = List.of("k1", "k2", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result, containsInAnyOrder(expect.toArray()));
     }
 
     @Test
     public void sortAsc() {
-        List<String> departments = Arrays.asList(
+        List<String> departments = List.of(
                 "K1/SK1",
                 "K1",
                 "K1/SK1/SSK2",
@@ -40,7 +40,7 @@ public class DepartmentsTest {
                 "K1/SK1/SSK1",
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2");
-        List<String> deps = Arrays.asList(
+        List<String> deps = List.of(
                 "K1",
                 "K1/SK1",
                 "K1/SK1/SSK1",

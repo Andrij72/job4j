@@ -45,10 +45,8 @@ public class User implements Comparable<User> {
     }
 
     public static void main(String[] args) {
-        Set<User> users = new TreeSet<>();
-        users.add(new User("Petr", 32));
-        users.add(new User("Fill", 31));
-        users.add(new User("John", 31));
+        Set<User> users = new TreeSet<>(Set.of(
+                new User("Petr", 32), new User("Fill", 31), new User("John", 31)));
         System.out.println(users);
     }
 }

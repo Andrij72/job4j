@@ -12,7 +12,7 @@ public class UserAscByName implements Comparator<User> {
     }
 
     public static void main(String[] args) {
-        List<User> lst = Arrays.asList(new User("Ivan", 21),
+        List<User> lst = List.of(new User("Ivan", 21),
                 new User("Petr", 33),
                 new User("Nik", 43)
         );

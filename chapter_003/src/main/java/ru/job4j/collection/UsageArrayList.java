@@ -5,10 +5,7 @@ import java.util.List;
 
 public class UsageArrayList {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("Petr");
-        list.add("Ivan");
-        list.add("Stepan");
-        list.stream().forEach(System.out::println);
+        List<String> list = List.of("Petr", "Ivan", "Stepan");
+        list.forEach(System.out::println);
     }
 }
