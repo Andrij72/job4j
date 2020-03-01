@@ -14,8 +14,8 @@ public class PriorityQueueTest {
         queue.put(new Task("middle", 3));
         queue.put(new Task("lowest", 6));
         queue.put(new Task("urgent_middle", 2));
-        StringBuilder printQ = new StringBuilder();
-        Task result = queue.take();
+        var printQ = new StringBuilder();
+        var result = queue.take();
         printQ.append(result).append(" ");
         result = queue.take();
         printQ.append(result).append(" ");
