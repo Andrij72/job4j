@@ -50,6 +50,7 @@ public class Student implements Comparable<Student> {
     }
 
     public List<Student> levelOf(List<Student> students, int bound) {
-        return students.stream().sorted().flatMap(Stream::ofNullable).takeWhile(st -> st.score > bound).collect(Collectors.toList());
+        return students.stream()
+                .flatMap(Stream::ofNullable).sorted().takeWhile(st -> st.score > bound).collect(Collectors.toList());
     }
 }
