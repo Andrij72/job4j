@@ -14,7 +14,7 @@ public class TestStream {
         List<String> strings = Arrays.asList("a1", "b2", "c3", "a1");
         Map list = strings.stream().collect(Collectors.groupingBy((p) -> p.substring(0, 0)));
         list.forEach((k, v) -> System.out.println(k + " Value: " + v));
-
+        System.out.println("2-------------");
 
         List<Product> productList = Arrays.asList(new Product(23, "potatoes"),
                 new Product(14, "orange"), new Product(13, "lemon"),
@@ -28,9 +28,11 @@ public class TestStream {
                 .collect(Collectors.averagingInt(Product::getPrice));
         System.out.println(averagePrice);
 // intStream
+        System.out.println("3-------------");
+
         IntStream intStream = IntStream.range(1, 3);
         LongStream longStream = LongStream.rangeClosed(1, 3);
-
+        System.out.println("4-------------");
 // Person list
         List<Person> persons =
                 Arrays.asList(
@@ -46,7 +48,7 @@ public class TestStream {
                         .collect(Collectors.toList());
 
         System.out.println(filtered);
-
+        System.out.println("5-------------");
         // Peoples group by age
         Map<Integer, List<Person>> personsByAge = persons
                 .stream()
@@ -54,9 +56,8 @@ public class TestStream {
 
         personsByAge.
                 forEach((age, p) -> System.out.format("age %s: %s\n", age, p));
-
+        System.out.println("6-------------");
 // transform flow elements to display
-        System.out.println("++++++++++++");
         Map<Integer, String> map = persons
                 .stream()
                 .collect(Collectors.toMap(
@@ -64,9 +65,9 @@ public class TestStream {
                         p -> p.name,
                         (name1, name2) -> "[" + name1 + ";" + name2 + "]"));
         System.out.println(map);
-
+        System.out.println("7-------------");
         //++++++++++++++
-        System.out.println("++++++++++++");
+
         Collector<Person, StringJoiner, String> personNameCollector =
                 Collector.of(
                         () -> new StringJoiner(" | "),          // supplier

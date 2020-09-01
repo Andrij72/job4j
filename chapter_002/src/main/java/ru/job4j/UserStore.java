@@ -1,4 +1,7 @@
-package ru.job4.io.ex;
+package ru.job4j;
+
+import ru.job4j.ex.UserInvalidException;
+import ru.job4j.ex.UserNotFoundException;
 
 public class UserStore extends FindEl {
 

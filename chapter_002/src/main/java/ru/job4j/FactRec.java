@@ -1,4 +1,4 @@
-package ru.job4.io.ex;
+package ru.job4j;
 
 public class FactRec {
     public static int calc(int n) {

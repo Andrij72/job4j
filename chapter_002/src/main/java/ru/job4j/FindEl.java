@@ -1,4 +1,6 @@
-package ru.job4.io.ex;
+package ru.job4j;
+
+import ru.job4j.ex.ElementNotFoundException;
 
 public class FindEl {
     public static int indexOf(String[] value, String key) throws ElementNotFoundException {

@@ -1,4 +1,4 @@
-package ru.job4j.ex;
+package ru.job4j;
 
 import java.util.Arrays;
 
@@ -12,5 +12,6 @@ public class BackArray {
             names[names.length - 1 - index] = temp;
         }
         System.out.println(Arrays.toString(names));
+
     }
 }
